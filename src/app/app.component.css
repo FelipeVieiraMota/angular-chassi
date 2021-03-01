@@ -1,0 +1,11 @@
+.margem{
+    border-top: 5px solid #000;
+}
+
+.div-button-style{
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    border-left: 10px solid #000;
+    border-right: 10px solid #000;
+    background-color: #000;
+}
