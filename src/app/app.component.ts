@@ -4,7 +4,6 @@ import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 
 
 @Component({
-
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -12,16 +11,15 @@ import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 
 export class AppComponent {
 
-    title:string = 'angular-chassi - Table Test';
+    public title:string = 'angular-chassi - Table Test';
 
-    configService:ConfigService;  
+    public configService:ConfigService;  
 
-    filtred:IAllData = { data : [] };
+    public filtred:IAllData = { data : [] };
 
-    wait:boolean = false
+    public wait:boolean = false
 
-
-    spinnerIcon = faPlusSquare;
+    public spinnerIcon = faPlusSquare;
 
     public constructor(private configServiceService:ConfigService){
       
@@ -44,7 +42,7 @@ export class AppComponent {
 
     public async getAllStudents(){
 
-      await this.configService.getAllStudents().subscribe( ( data:IAllData ) => { 
+      await this.configService.getAllStudentsLocalHost().subscribe( ( data:IAllData ) => { 
         
         this.filtred = data;
         
@@ -73,4 +71,8 @@ export interface IData{
   last_name:string,
   rg:string,
   token:string,
+  email:string,
+  ra:string,
+  student_internal_code:string,
+  cellphone:string
 }

@@ -28,8 +28,6 @@ export class ConfigService {
         return this.http.get<IAllData>(`http://localhost:8080/v1/backoffice/students`,requestOptions);
     }
 
-
-
     public getAllStudents() : Observable<IAllData>{
       // now returns an Observable of Config
 
@@ -46,5 +44,4 @@ export class ConfigService {
 
       return this.http.get<IAllData>(`http://174.129.83.196:8080/v1/backoffice/students`,requestOptions);
   }
-
 }
