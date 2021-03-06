@@ -11,10 +11,8 @@ export class ConfigService {
   
     constructor(private http: HttpClient) { }
 
-    public getAllStudents() : Observable<IAllData>{
+    public getAllStudentsLocalHost() : Observable<IAllData>{
         // now returns an Observable of Config
-
-        var proxyForLocalHost:string = 'https://cors-anywhere.herokuapp.com/'
 
         const headerDict = {
             'Content-Type': 'application/json',
@@ -27,7 +25,26 @@ export class ConfigService {
           };
 
 
-        return this.http.get<IAllData>(`${proxyForLocalHost}http://54.174.89.104:8080/v1/backoffice/students`,requestOptions);
+        return this.http.get<IAllData>(`http://localhost:8080/v1/backoffice/students`,requestOptions);
     }
+
+
+
+    public getAllStudents() : Observable<IAllData>{
+      // now returns an Observable of Config
+
+      const headerDict = {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Headers': 'Content-Type'
+        }
+        
+        const requestOptions = {                                                                                                                                                                                 
+          headers: new HttpHeaders(headerDict), 
+        };
+
+
+      return this.http.get<IAllData>(`http://174.129.83.196:8080/v1/backoffice/students`,requestOptions);
+  }
 
 }

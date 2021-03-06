@@ -9,3 +9,17 @@
     border-right: 10px solid #000;
     background-color: #000;
 }
+
+.thead-class{
+    color: blueviolet;
+    background: lightgray;
+}
+
+.tbody-class{
+    background: beige;
+}
+
+.btn-search{
+    background: lightslategray;
+    border: azure;
+}

@@ -28,11 +28,33 @@ export class AppComponent {
       this.configService = configServiceService;
     }
 
+
+    private cpfMask(cpf:string){
+      if (cpf.length == 11){
+        let exp = /\.|\-/g
+        cpf = cpf.replace(/(\d{3})?(\d{3})?(\d{3})?(\d{2})/, "$1.$2.$3-$4")
+      }
+      return cpf
+    }
+
+    private rgMask(rg:string){
+      return rg.replace(/(\d{2})?(\d{3})?(\d{3})?(\d{1})/, "$1.$2.$3-$4")
+    }
+
+
     public async getAllStudents(){
-      //this.wait = true
 
-      await this.configService.getAllStudents().subscribe( ( data:IAllData ) => { this.filtred = data; this.wait = false; console.log(" Filtred " + JSON.stringify(this.filtred)) } );
-
+      await this.configService.getAllStudents().subscribe( ( data:IAllData ) => { 
+        
+        this.filtred = data;
+        
+        if (this.filtred.data.length > 0){
+          this.filtred.data.forEach(ele => {
+            ele.cpf = this.cpfMask(ele.cpf)
+            ele.rg = this.rgMask(ele.rg)
+          })
+        }
+      });
     } 
 }
 

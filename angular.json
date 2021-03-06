@@ -31,7 +31,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              "../node_modules/font-awesome/css/font-awesome.min.css",
+              "../node_modules/primeng/resources/themes/omega/theme.css",
+              "../node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
@@ -66,7 +69,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builsr": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "angular-chassi:build"
           },
